@@ -1,0 +1,94 @@
+import java.util.Scanner;
+ 
+public class MyUtils1 {
+	
+	public static void main(String[] args) {
+		Scanner oku = new Scanner(System.in); //klaveyedan okumak icin
+		int switch_Testing; 
+		System.out.println("Hangi Islem Yapmak Istiyoursun?");
+		System.out.println("üçgenin çevresini bulmak istiyorsan 1'e bas");
+		System.out.println("üçgenin alanını bulmak istiyorsan 2'e bas");
+		System.out.println("çokgenin çevresini bulmak istiyorsan 3'e bas");
+		System.out.println("çokgenin alanını bulmak istiyorsan 4'e bas");
+		System.out.println("TamSayilar Blmak icin -100 ile 100 arasindaki 5'e bas");
+		switch_Testing = oku.nextInt();
+		
+		switch(switch_Testing){
+		case 1:{
+			float a , b ,c,cevreHesblama;
+			System.out.println("Üçgenin kenarlarını girniz");
+			a = oku.nextFloat();
+			b = oku.nextFloat();
+			c = oku.nextFloat();
+			cevreHesblama = ucgenCevre(a,b,c);
+			System.out.println("üçgenin çevresini ="+cevreHesblama);
+			break;}
+		
+		case 2:{
+			float a, b,ucgenAlanHesablam;
+			System.out.println("Taban değerini gir");
+			a = oku.nextFloat(); 
+			System.out.println("Yükseklik değerini gir");
+			b = oku.nextFloat();
+			ucgenAlanHesablam = ucgenAlan(a,b);
+			System.out.println("üçgenin alanını ="+ucgenAlanHesablam);
+			break;}
+		
+		case 3:{
+			float kisaKenar,UzunKinar,cokgenCevreHesablama; 
+			System.out.println("kısa kenarı giriniz");
+			kisaKenar = oku.nextFloat();
+			System.out.println("uzun kenarı giriniz");
+			UzunKinar = oku.nextFloat();
+			cokgenCevreHesablama = cokgenCevre(kisaKenar,UzunKinar);
+			System.out.println("cokgenCevre = "+cokgenCevreHesablama);	
+		break;}
+		case 4:{
+			float kisaKenar,UzunKinar,cokgenAlanHesablama; 
+			System.out.println("kısa kenarı giriniz");
+			kisaKenar = oku.nextFloat();
+			System.out.println("uzun kenarı giriniz");
+			UzunKinar = oku.nextFloat();
+			cokgenAlanHesablama = cokgenAlan(kisaKenar,UzunKinar);
+			System.out.println("cokgenAlan = "+cokgenAlanHesablama);
+			break;}
+		case 5:{
+			
+			TamSayilarBulmak();
+		}
+		}
+	}
+	
+	public static float ucgenCevre(float a , float b , float c){
+		float cever=0; 
+		cever = a + b + c; 
+		return cever;
+	}
+	public static float ucgenAlan(float Taban , float Yukeklik){
+		float ucgenAlan; 
+		ucgenAlan =(Taban * Yukeklik)/2;
+		return ucgenAlan;}
+	public static float cokgenCevre(float kkinar , float ukinar){
+		float cokgenCevre;
+		cokgenCevre = 2*(kkinar*ukinar);
+		return cokgenCevre;}
+	
+	public static float cokgenAlan(float kkinar, float ukinar){
+		float cokgenAlan; 
+		cokgenAlan = kkinar*ukinar;
+		return cokgenAlan;
+		}
+	public static void TamSayilarBulmak(){
+		long DiziRakamlar[] = new long[200];
+		int i=0; //Sayac 
+		long IntegerSayi=-100; 
+		while(IntegerSayi<99){
+			IntegerSayi=IntegerSayi+1;
+			DiziRakamlar[i]=IntegerSayi;
+			System.out.print(DiziRakamlar[i]+"\t");
+		}
+			
+
+	}
+
+}
